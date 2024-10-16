@@ -1,0 +1,18 @@
+<!-- add my sql connector Or Hibernate core dependency in pom.xml file-->
+
+
+<!DOCTYPE hibernate-configuration PUBLIC
+  "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<property name="connection.Driver_class">Driver class name</property>
+		<property name="connection.url">database url</property>
+		<property name="connection.username">username</property>
+		<property name="connection.password">password</property>
+		<property name="dialect">MySQL Dialect</property>
+		<property name="hbm2ddl.auto">update</property>
+		<mapping class="Entity class name with package."/>
+	</session-factory>
+</hibernate-configuration>
