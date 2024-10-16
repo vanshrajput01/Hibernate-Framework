@@ -12,6 +12,7 @@ public class App
     {
         SessionFactory factory = new Configuration().configure("pass here url of hibernate configuration file.").buildSessionFactory();
         Session session = factory.openSession();
+        // Save student object (means add data in student table).
         Student st = new Student();
         st.setStudName("student03");
         st.setStudFee(15000);
