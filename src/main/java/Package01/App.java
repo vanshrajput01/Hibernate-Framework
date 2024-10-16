@@ -22,12 +22,13 @@ public class App
         System.out.println("data add successFully!!");
         session.close();
         
-        // if you want to get data from  Table by id..
+        // if you want to get data from Table by id..
 
         SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
     	Session session = factory.openSession();
     	// if you can get data by id..
     	Student st = session.get(Student.class, 1);
+        // you can also use load method in place of get method...
     	System.out.println("Stuednt deatils is :-" + st.getStudName() + " " + st.getStudFee());
     	session.close();
 
