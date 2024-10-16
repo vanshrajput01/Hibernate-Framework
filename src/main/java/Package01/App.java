@@ -10,7 +10,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+        SessionFactory factory = new Configuration().configure("pass here url of hibernate configuration file.").buildSessionFactory();
         Session session = factory.openSession();
         Student st = new Student();
         st.setStudName("student03");
