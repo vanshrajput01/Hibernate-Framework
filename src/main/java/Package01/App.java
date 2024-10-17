@@ -22,7 +22,7 @@ public class App
         System.out.println("data add successFully!!");
         session.close();
         
-        // if you want to get data from Table by id..
+        // if you want to get data in Table by using id..
 
         SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
     	Session session = factory.openSession();
@@ -32,7 +32,22 @@ public class App
     	System.out.println("Stuednt deatils is :-" + st.getStudName() + " " + st.getStudFee());
     	session.close();
 
-        // if you get all data from table...
+        // if you want to update data in Table by 
+            	SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+    	Session session = factory.openSession();
+    	Transaction transaction = session.beginTransaction();
+    	EmployeeEntity emp = session.load(EmployeeEntity.class, 2);
+//    	emp.setEmpId(1);
+    	emp.setEmpName("employee02");
+    	emp.setEmpSalary(11500);
+    	session.update(emp);
+    	System.out.println("student update!!");
+    	transaction.commit();
+//    	System.out.println("employee details is :-" + emp.getEmpId() +  " " + emp.getEmpName());
+    	session.close();
+
+
+        
         
     }
 }
