@@ -46,6 +46,16 @@ public class App
 //    	System.out.println("employee details is :-" + emp.getEmpId() +  " " + emp.getEmpName());
     	session.close();
 
+        //if you want to delete data in table
+
+        SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+    	Session session = factory.openSession();
+    	Transaction transaction = session.beginTransaction();
+    	EmployeeEntity emp = session.load(EmployeeEntity.class, 3);
+    	session.delete(emp);
+    	transaction.commit();
+    	System.out.println("data deleted");
+
 
         
         
