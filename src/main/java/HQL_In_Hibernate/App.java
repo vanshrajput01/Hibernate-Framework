@@ -72,6 +72,21 @@ public class App
     		
     		
     	}
+
+
+    #########################################################  How to delete data from table using hibernate ##############################################
+
+    	SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+		Session session = factory.openSession();
+//    	How to update data from table using HQL langauge
+		Transaction transaction = session.beginTransaction();
+		String q = "delete from EmployeeEntity where empId = :id";
+		Query query = session.createQuery(q);
+		query.setParameter("id", 4);
+		query.executeUpdate();
+		System.out.println("data delete!!");
+		transaction.commit();
+        session.close();
     	
 
        
