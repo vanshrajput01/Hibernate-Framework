@@ -32,6 +32,38 @@ public class App
     		System.out.println(" **** employee details *****");
     		System.out.println("emp id" + emp.getEmpId() + "data is :- " + emp.getEmpSalary() + " " +  emp.getEmpId());
     	}
+     
+         session.close();
+    	############################################ How to get all data in database using Load method ######################################################
+
+        SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+    	Session session = factory.openSession();
+//    	How to get all data in database using HQL language. 
+    	String q = "from EmployeeEntity";
+    	Query query = session.createQuery(q);
+    	List<EmployeeEntity> empList = query.getResultList();
+    	for (EmployeeEntity emp : empList) {
+    		System.out.println(" **** employee details *****");  
+    		System.out.println("emp id" + emp.getEmpId() + "data is :- " + emp.getEmpSalary() + " " +  emp.getEmpId());
+    	}
+    	
+
+    	session.close();
+
+        #################################################  How to update data form Table ################################################################
+            
+    	SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();=
+    	Transaction transaction = session.beginTransaction();
+    	String q = "update from EmployeeEntity set empName = :name , empSalary = :salary where empId = :id";
+    	Query query = session.createQuery(q);
+    	query.setParameter("name", "emp02");
+    	query.setParameter("salary", 12050);
+    	query.setParameter("id", 2);
+    	
+    	query.executeUpdate();
+    	System.out.println("Update data!!");
+
+    	transaction.commit();
     	
 
     	session.close();
