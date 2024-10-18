@@ -10,7 +10,8 @@ public class App
 {
     public static void main( String[] args )
     {
-        //  How to get single row in database using HQL language. 
+        ##################################################   How to get single row in database using HQL language #################################################### 
+            
     	SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
     	Session session = factory.openSession();
     	String q = "from EmployeeEntity where empId = :id";
@@ -20,7 +21,8 @@ public class App
     	System.out.println("Employee details :- "+ emp.getEmpId() + " " + emp.getEmpName() + " " + emp.getEmpSalary());
     	session.close();
 
-        //  How to get all data in database using HQL language. 
+        #############################################  How to get all data in database using List method ###################################################
+            
         SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
     	Session session = factory.openSession();
     	String q = "from EmployeeEntity";
