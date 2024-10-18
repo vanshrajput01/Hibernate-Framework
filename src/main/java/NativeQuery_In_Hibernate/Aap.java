@@ -78,3 +78,18 @@ public class App {
 
 
 
+###################################################### How to delete data in table using native query ##########################################################
+
+		SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").buildSessionFactory();
+		Session session = factory.openSession();
+		Transaction transaction = session.beginTransaction();
+		String q = "delete from employee_details where emp_id = ?";
+		Query query = session.createSQLQuery(q);
+		query.setParameter(1, 1);
+		query.executeUpdate();
+		System.out.println("data deleted!!");
+		transaction.commit();
+		session.close();
+
+
+
